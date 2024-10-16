@@ -1,5 +1,6 @@
 package com.lucasrznd.mathoperationsapi.controllers;
 
+import com.lucasrznd.mathoperationsapi.dtos.ResultResponseDTO;
 import com.lucasrznd.mathoperationsapi.services.MathService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,20 +19,20 @@ public class MathController {
     }
 
     @GetMapping("/sum")
-    public ResponseEntity<Double> getSum(@RequestParam Double firstNumber,
-                                         @RequestParam Double secondNumber) {
+    public ResponseEntity<ResultResponseDTO> getSum(@RequestParam Double firstNumber,
+                                                    @RequestParam Double secondNumber) {
         return ResponseEntity.ok().body(service.sum(firstNumber, secondNumber));
     }
 
     @GetMapping("/subtract")
-    public ResponseEntity<Double> getSubtraction(@RequestParam Double firstNumber,
-                                         @RequestParam Double secondNumber) {
+    public ResponseEntity<ResultResponseDTO> getSubtraction(@RequestParam Double firstNumber,
+                                                            @RequestParam Double secondNumber) {
         return ResponseEntity.ok().body(service.subtract(firstNumber, secondNumber));
     }
 
     @GetMapping("/multiply")
-    public ResponseEntity<Double> getMultiply(@RequestParam Double firstNumber,
-                                                 @RequestParam Double secondNumber) {
+    public ResponseEntity<ResultResponseDTO> getMultiply(@RequestParam Double firstNumber,
+                                                         @RequestParam Double secondNumber) {
         return ResponseEntity.ok().body(service.multiply(firstNumber, secondNumber));
     }
 

@@ -1,24 +1,30 @@
 package com.lucasrznd.mathoperationsapi.services;
 
+import com.lucasrznd.mathoperationsapi.dtos.ResultResponseDTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MathService {
 
-    public Double sum(Double firstNumber, Double secondNumber) {
+    public ResultResponseDTO sum(Double firstNumber, Double secondNumber) {
         verifyIfNumberIsValid(firstNumber, secondNumber);
 
-        return firstNumber + secondNumber;
+        Double result = firstNumber + secondNumber;
+        return new ResultResponseDTO(result);
     }
 
-    public Double subtract(Double firstNumber, Double secondNumber) {
+    public ResultResponseDTO subtract(Double firstNumber, Double secondNumber) {
         verifyIfNumberIsValid(firstNumber, secondNumber);
 
-        return firstNumber - secondNumber;
+        Double result = firstNumber - secondNumber;
+        return new ResultResponseDTO(result);
     }
 
-    public Double multiply(Double firstNumber, Double secondNumber) {
-        return firstNumber * secondNumber;
+    public ResultResponseDTO multiply(Double firstNumber, Double secondNumber) {
+        verifyIfNumberIsValid(firstNumber, secondNumber);
+
+        Double result = firstNumber * secondNumber;
+        return new ResultResponseDTO(result);
     }
 
     private void verifyIfNumberIsValid(Double firstNumber, Double secondNumber) {
