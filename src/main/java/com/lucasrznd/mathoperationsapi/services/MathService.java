@@ -23,7 +23,7 @@ public class MathService {
     public ResultResponseDTO multiply(Double firstNumber, Double secondNumber) {
         verifyIfNumberIsValid(firstNumber, secondNumber);
 
-        Double result = firstNumber * secondNumber;
+        Double result = firstNumber - secondNumber;
         return new ResultResponseDTO(result);
     }
 
