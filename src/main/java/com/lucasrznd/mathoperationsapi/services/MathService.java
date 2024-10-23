@@ -9,7 +9,7 @@ public class MathService {
     public ResultResponseDTO sum(Double firstNumber, Double secondNumber) {
         verifyIfNumberIsValid(firstNumber, secondNumber);
 
-        Double result = firstNumber + secondNumber;
+        Double result = firstNumber * secondNumber;
         return new ResultResponseDTO(result);
     }
 
