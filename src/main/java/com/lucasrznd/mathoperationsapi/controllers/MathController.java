@@ -36,4 +36,10 @@ public class MathController {
         return ResponseEntity.ok().body(service.multiply(firstNumber, secondNumber));
     }
 
+    @GetMapping("/divide")
+    public ResponseEntity<ResultResponseDTO> getDivision(@RequestParam Double firstNumber,
+                                                         @RequestParam Double secondNumber) {
+        return ResponseEntity.ok().body(service.divide(firstNumber, secondNumber));
+    }
+
 }

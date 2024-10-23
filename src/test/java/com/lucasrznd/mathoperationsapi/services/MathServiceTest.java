@@ -53,4 +53,17 @@ class MathServiceTest {
         assertThatThrownBy(() -> service.multiply(null, null)).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    public void getDivision_WithValidNumbers_ReturnsResult() {
+        ResultResponseDTO result = service.divide(10D, 5D);
+
+        assertThat(result).isNotNull();
+        assertThat(result.value()).isEqualTo(2);
+    }
+
+    @Test
+    public void getDivision_WithInvalidNumbers_ThrowsException() {
+        assertThatThrownBy(() -> service.multiply(null, null)).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

@@ -78,4 +78,22 @@ class MathControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    public void getDivision_WithValidNumbers_ReturnsOk() throws Exception {
+        ResultResponseDTO result = new ResultResponseDTO(2D);
+        when(service.divide(10D, 5D)).thenReturn(result);
+
+        mockMvc.perform(get("/math/divide")
+                        .param("firstNumber", String.valueOf(10D))
+                        .param("secondNumber", String.valueOf(5D)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.value").value(2D));
+    }
+
+    @Test
+    public void getDivision_WithNullParams_ReturnsBadRequest() throws Exception {
+        mockMvc.perform(get("/math/divide"))
+                .andExpect(status().isBadRequest());
+    }
+
 }
